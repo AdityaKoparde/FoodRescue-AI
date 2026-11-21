@@ -44,15 +44,6 @@ locally. Without a key — or if the provider fails — `/api/vision` returns 50
 the desk falls back to a rule-based listing. The rescue workflow never depends on the
 model.
 
-## Deploy
-
-Vercel: import the repo, add `GEMINI_API_KEY`, deploy. `vercel.json` rewrites
-non-API paths to `index.html` so the partner links resolve.
-
-```sh
-npm run build
-```
-
 ## The rules the desk runs on
 
 These are deliberately plain rules, not model output:
@@ -92,16 +83,9 @@ has a real cost:
 - Two people cannot work the same rescue at the same time.
 - Receipts are proof-shaped, not proof: nothing is signed server-side.
 
-What a real deployment adds: one table (`rescue`, `broadcast`, `event`), a
-`GET/POST /api/rescue/:id` route, a three-second poll on the desk and on the partner
-page, and a signed single-use token per broadcast instead of `?p=partnerId`. About a
-day of work, and the first thing to build next.
-
 ## Honest limits
 
 - No real canteen or NGO has used this yet. Partners and donors are synthetic.
 - The numbers on `/impact` describe the seeded demo, not Mysuru.
 - This is not a food-safety authority and not a validated pilot.
 
-See `docs/SUBMISSION.md` for the judge-facing copy and `docs/DEMO.md` for the
-40-second recording script.
