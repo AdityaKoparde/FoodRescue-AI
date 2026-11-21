@@ -29,21 +29,6 @@ with a signed receipt, and one that was lost. **Reset** in the header reseeds th
 The desk clock control (`1× / 60× / 300×`) accelerates simulated time so a 90-minute
 safe window plays in 90 seconds. The seed data ages with it.
 
-## Vision (optional)
-
-The photo reader is a single serverless function that keeps the provider key off the
-client.
-
-```sh
-cp .env.example .env.local
-# GEMINI_API_KEY=...
-```
-
-`vite dev` does not run `api/`, so use `vercel dev` if you want the photo reader
-locally. Without a key — or if the provider fails — `/api/vision` returns 501/502 and
-the desk falls back to a rule-based listing. The rescue workflow never depends on the
-model.
-
 ## The rules the desk runs on
 
 These are deliberately plain rules, not model output:
